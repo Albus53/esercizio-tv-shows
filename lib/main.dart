@@ -1,4 +1,5 @@
 import 'package:esercizio_tv_shows/providers/show_provider.dart';
+import 'package:esercizio_tv_shows/screens/show_list_screen.dart';
 import 'package:esercizio_tv_shows/services/show_api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Esercizio Tv Shows',
-      home: Scaffold(body: Center(child: Text('TV Shows App'))),
+      home: ShowListScreen(),
     );
   }
 }
