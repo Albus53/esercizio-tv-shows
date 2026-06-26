@@ -1,4 +1,5 @@
 import 'package:esercizio_tv_shows/providers/show_provider.dart';
+import 'package:esercizio_tv_shows/screens/show_detail_screen.dart';
 import 'package:esercizio_tv_shows/widgets/show_grid_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +44,18 @@ class _ShowListScreenState extends State<ShowListScreen> {
             if (provider.shows.isEmpty) {
               return const Center(child: Text('No shows found'));
             }
-            return ShowGrid(shows: provider.shows, onShowTap: (show) {});
+
+            return ShowGrid(
+              shows: provider.shows,
+              onShowTap: (show) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ShowDetailScreen(show: show),
+                  ),
+                );
+              },
+            );
           },
         ),
       ),
