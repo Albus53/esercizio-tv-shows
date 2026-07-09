@@ -27,6 +27,23 @@ class _ShowListScreenState extends State<ShowListScreen> {
   Widget build(BuildContext context) {
     final provider = context.watch<ShowsProvider>();
 
+    // Review note:
+    // Some user-facing strings are currently written directly inside the widgets.
+    // This is acceptable for a small exercise, but it can become harder to maintain
+    // if the app grows, because the texts would be spread across different files.
+    //
+    // A possible improvement would be to move these strings into a dedicated
+    // AppStrings class. For a bigger app, or if multiple languages were required,
+    // Flutter localization with ARB files would be a better solution.
+
+    // Review note:
+    // The header and the grid are not perfectly aligned because they use different
+    // spacing/padding values. This makes the page look less consistent, especially
+    // on web where the layout has more horizontal space.
+    //
+    // A possible improvement would be to manage the main page padding in one place,
+    // for example at screen level, and let the header and the grid use the same
+    // horizontal alignment.
     return Scaffold(
       appBar: AppBar(
         title: const Text('TV Shows'),

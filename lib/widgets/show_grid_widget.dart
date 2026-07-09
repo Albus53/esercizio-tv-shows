@@ -10,6 +10,16 @@ class ShowGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Review note:
+    // The grid currently has a fixed number of columns.
+    // This works on a basic desktop layout, but it is not ideal for Flutter Web,
+    // because when the browser window changes size, the cards mainly become
+    // bigger or smaller instead of changing the number of cards per row.
+    //
+    // A possible improvement would be to use LayoutBuilder to manage simple
+    // breakpoints. In this way, the app could show fewer cards per row on smaller
+    // screens and more cards per row on larger screens, while keeping the card
+    // size more consistent.
     return GridView.builder(
       padding: const EdgeInsets.all(16),
       itemCount: shows.length,

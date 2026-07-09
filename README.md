@@ -241,6 +241,44 @@ At the same time, I still separated the code into models, services, providers, s
 
 Another point was choosing the API. The original suggestion was TMDB, but it requires an API token. I chose TVMaze because it is public, easy to use and does not require manual setup.
 
+## Additional Reflections
+
+### What I Deepened During the Project
+
+During the project, I deepened my understanding of `GridView` and how it can be used to display data in a structured layout.
+
+I also worked more on the differences between building a web screen and a mobile screen. In particular, I understood that Flutter Web requires more attention to responsiveness, spacing, alignment and how the layout behaves when the browser window changes size.
+
+Another important part was managing state with `provider`. I used it to keep the UI separated from the logic that handles the list of shows, the loading state and the error state.
+
+### How I Approached the Problem
+
+I approached the task step by step.
+
+First, I chose which API to use for the project. After that, I defined the data model based on the API response and on the information that was useful for the list and detail screens.
+
+Then I created a service class to keep the HTTP request outside the widgets.
+
+After that, I used a provider to manage the application state, including the list of shows, the loading state and the error message.
+
+Finally, I built the UI with a list screen, reusable card and grid widgets, and a detail screen that receives the selected show.
+
+I tried to keep the project simple, but still organized enough to make the code readable and maintainable.
+
+### Why I Chose This Approach
+
+I chose this approach because the project is small, but it still needs a clear separation of responsibilities.
+
+I chose the TVMaze API because it does not require an API token. This made the setup simpler and avoided adding token management to the project, which could have made the exercise more complex, especially for configuration and security reasons.
+
+I used `provider` instead of a more complex state management solution because the app only needs to manage a list of shows, a loading state and an error state. A solution like Bloc or Cubit could also work, but for this exercise it would have added more structure than necessary.
+
+I used the `http` package instead of `dio` because the app only needs a simple GET request. `dio` would be useful in a larger application with interceptors, authentication, request cancellation or more advanced error handling.
+
+I passed the selected `ShowModel` directly to the detail screen instead of making a second API call because the list API already provides enough information for the detail page. In a larger app, if the detail screen required more complete or always updated data, I would consider using a dedicated detail endpoint.
+
+I also avoided adding a routing package because the navigation flow is simple and only goes from the list screen to the detail screen.
+
 ## Final Notes
 
 The project focuses on clarity, simplicity and separation of responsibilities.

@@ -18,6 +18,13 @@ class ShowCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
+              // Review note:
+              // The image is loaded directly with Image.network.
+              // This works when the image URL is valid, but there is no loading or error
+              // fallback if the image is slow or fails to load.
+              //
+              // A possible improvement would be to add a loadingBuilder and an errorBuilder,
+              // so the card can show a placeholder instead of leaving a broken image area.
               child: Image.network(
                 show.image.medium,
                 width: double.infinity,
